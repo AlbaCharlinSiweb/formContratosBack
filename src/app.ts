@@ -9,7 +9,7 @@ const app = express();
 
 // Configuración de CORS
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'https://kitdigital.siwebcanarias.es/', // URL del frontend
+  origin: process.env.FRONTEND_URL || 'https://kitdigital.siwebcanarias.es', // URL del frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type'],
   credentials: true,
