@@ -7,8 +7,17 @@ dotenv.config();
 
 const app = express();
 
+// Configuración de CORS
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || 'https://kitdigital.siwebcanarias.es/', // URL del frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  allowedHeaders: ['Content-Type'],
+  credentials: true,
+  maxAge: 86400 // 24 horas
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Rutas
