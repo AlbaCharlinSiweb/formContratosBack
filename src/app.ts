@@ -11,7 +11,7 @@ const app = express();
 const corsOptions = {
   origin: process.env.FRONTEND_URL || 'https://kitdigital.siwebcanarias.es', // URL del frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type'],
+  allowedHeaders: ['Content-Type', 'X-AUTH-TOKEN'],
   credentials: true,
   maxAge: 86400 // 24 horas
 };
