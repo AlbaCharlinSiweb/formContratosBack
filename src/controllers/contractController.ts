@@ -10,8 +10,8 @@ interface ContractPayload {
 }
 
 const API_CONFIG = {
-  BASE_URL: process.env.BASE_URL || 'https://call.siwebonline.com/api/orders/create-contract-by-nif/',
-  AUTH_TOKEN: process.env.X_AUTH_TOKEN || '3PW0QYGA5V9ZWR7CNA61MGSGME',
+  BASE_URL: process.env.BASE_URL || '',
+  AUTH_TOKEN: process.env.X_AUTH_TOKEN || '',
 };
 
 export const createContract = async (req: Request, res: Response) => {
