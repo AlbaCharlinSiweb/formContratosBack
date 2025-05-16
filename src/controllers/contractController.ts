@@ -9,6 +9,8 @@ dotenv.config();
 interface ContractPayload {
   tax_id: string;
   product: string;
+  name: string;
+  phone: string;
 }
 
 const API_CONFIG = {
