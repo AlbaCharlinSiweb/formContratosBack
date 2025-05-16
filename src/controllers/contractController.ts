@@ -11,6 +11,7 @@ interface ContractPayload {
   product: string;
   name: string;
   phone: string;
+  campaign: string;
 }
 
 const API_CONFIG = {
