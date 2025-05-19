@@ -2,11 +2,16 @@ import { Request, Response } from 'express';
 import { isValidSpanishId } from '../utils/validatorCif';
 import dotenv from 'dotenv';
 
+import fetch, { Headers } from 'node-fetch';
+
 dotenv.config();
 
 interface ContractPayload {
   tax_id: string;
   product: string;
+  name: string;
+  phone: string;
+  campaign: string;
 }
 
 const API_CONFIG = {
@@ -28,13 +33,15 @@ export const createContract = async (req: Request, res: Response) => {
       'X-AUTH-TOKEN': API_CONFIG.AUTH_TOKEN
     });
 
+    console.error(headers);
     const response = await fetch(API_CONFIG.BASE_URL, {
       method: 'POST',
-      headers,
+      headers: headers,
       body: JSON.stringify(payload)
     });
 
     if (!response.ok) {
+        console.error('Error en la respuesta del servidor:', response);
       throw new Error('Error en la respuesta del servidor');
     }
 
