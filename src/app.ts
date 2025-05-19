@@ -13,6 +13,8 @@ console.log('Directorio actual:', process.cwd());
 import express from 'express';
 import cors from 'cors';
 import contractRoutes from './routes/contractRoutes';
+import supabaseRoutes from './routes/supabaseRoutes';
+//import sendContactRoutes from './routes/sendContactRoutes';
 
 const app = express();
 
@@ -31,6 +33,8 @@ app.use(express.json());
 
 // Rutas
 app.use('/api', contractRoutes);
+app.use('/api', supabaseRoutes);
+//app.use('/api', sendContactRoutes);
 
 const PORT = process.env.PORT || 3000;
 
