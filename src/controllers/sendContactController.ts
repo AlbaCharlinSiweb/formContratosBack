@@ -11,8 +11,8 @@ interface SendContactPayload {
   }
 
 const API_CONFIG = {
-  BASE_URL: 'https://backend.call.siweb.es/api/contacts/rapido',
-  AUTH_TOKEN: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+  BASE_URL: process.env.BASE_URL_CONTACT || '',
+  AUTH_TOKEN: process.env.AUTH_TOKEN_CONTACT || ''
 };
 
 export const sendContact = async (req: Request, res: Response) => {
