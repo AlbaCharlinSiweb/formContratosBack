@@ -1,4 +1,4 @@
-/* import { Router } from 'express';
+import { Router } from 'express';
 import { sendContact } from '../controllers/sendContactController';
 
 const router = Router();
@@ -6,4 +6,4 @@ const router = Router();
 // Rutas CRUD
 router.post('/send-contact', sendContact);
 
-export default router;  */
+export default router;

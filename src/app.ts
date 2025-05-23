@@ -2,6 +2,9 @@ import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import contractRoutes from './routes/contractRoutes';
+import supabaseRoutes from './routes/supabaseRoutes';
+import sendContactRoutes from './routes/sendContactRoutes';
+
 // Cargar variables de entorno antes de cualquier otra importación
 const result = dotenv.config();
 
@@ -12,9 +15,6 @@ if (result.error) {
 
 console.log('Archivo .env cargado correctamente');
 console.log('Directorio actual:', process.cwd());
-
-import supabaseRoutes from './routes/supabaseRoutes';
-//import sendContactRoutes from './routes/sendContactRoutes';
 
 const app = express();
 const allowedOrigins = [
@@ -45,7 +45,7 @@ app.use(express.json());
 // Rutas
 app.use('/api', contractRoutes);
 app.use('/api', supabaseRoutes);
-//app.use('/api', sendContactRoutes);
+app.use('/api', sendContactRoutes);
 
 const PORT = process.env.PORT || 3000;
 
