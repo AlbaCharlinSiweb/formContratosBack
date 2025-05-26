@@ -31,10 +31,10 @@ export const sendContact = async (req: Request, res: Response) => {
   try {
     const payload: SendContactPayload = req.body;
 
-    const headers = {
+    const headers = new Headers({
       'Content-Type': 'application/json',
       'x-api-token': API_CONFIG.AUTH_TOKEN
-    };
+    });
 
     const response = await fetch(API_CONFIG.BASE_URL, {
       method: 'POST',
@@ -75,10 +75,10 @@ export const createAndContract = async (req: Request, res: Response) => {
   try {
     const payload: CreateAndContractPayload = req.body;
 
-    const headers = {
+    const headers = new Headers({
       'Content-Type': 'application/json',
       'x-api-token': API_CONFIG.AUTH_TOKEN
-    };
+    });
 
     const response = await fetch(API_CONFIG.CREATE_CONTRACT_URL, {
       method: 'POST',
