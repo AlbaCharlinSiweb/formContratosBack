@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
 import dotenv from 'dotenv';
 
+import fetch, { Headers } from 'node-fetch';
+
 dotenv.config();
 
 interface SendContactPayload {
