@@ -28,6 +28,7 @@ const API_CONFIG = {
 };
 
 export const sendContact = async (req: Request, res: Response) => {
+  console.log(req.body);
   try {
     const payload: SendContactPayload = req.body;
     console.log('Payload enviado:', payload);

@@ -46,12 +46,12 @@ app.use(express.json());
 app.use('/api', contractRoutes);
 app.use('/api', supabaseRoutes);
 app.use('/api', sendContactRoutes);
-
+console.log('Rutas de contacto montadas en /api');
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
-    console.log('Variables de entorno cargadas:', {
+    console.log('Variables de entorno cagadas:', {
         PORT: process.env.PORT,
         BASE_URL: process.env.BASE_URL,
         FRONTEND_URL: process.env.FRONTEND_URL,
