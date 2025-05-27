@@ -30,6 +30,7 @@ const API_CONFIG = {
 export const sendContact = async (req: Request, res: Response) => {
   try {
     const payload: SendContactPayload = req.body;
+    console.log('Payload enviado:', payload);
 
     const headers = new Headers({
       'Content-Type': 'application/json',
@@ -42,24 +43,21 @@ export const sendContact = async (req: Request, res: Response) => {
       body: JSON.stringify(payload)
     });
 
-    console.log(response);
+    const responseData = await response.json();
+    console.log('Respuesta del servidor:', responseData);
 
     if (!response.ok) {
-      console.error('Error en la respuesta del servidor:', response.status);
-      throw new Error('Error en la respuesta del servidor');
+      return res.status(response.status).json({
+        success: false,
+        error: responseData.message || 'Error en la respuesta del servidor',
+        details: responseData
+      });
     }
 
-    const data = await response.json();
-    
-    // Enviamos una respuesta estructurada al frontend
     res.status(200).json({
       success: true,
       message: 'Contacto enviado correctamente',
-      data: {
-        id: data.id || null,
-        status: data.status || 'success',
-        timestamp: new Date().toISOString()
-      }
+      data: responseData
     });
   } catch (error) {
     console.error('Error al enviar el contacto:', error);
@@ -74,6 +72,7 @@ export const sendContact = async (req: Request, res: Response) => {
 export const createAndContract = async (req: Request, res: Response) => {
   try {
     const payload: CreateAndContractPayload = req.body;
+    console.log('Payload enviado:', payload);
 
     const headers = new Headers({
       'Content-Type': 'application/json',
@@ -86,24 +85,21 @@ export const createAndContract = async (req: Request, res: Response) => {
       body: JSON.stringify(payload)
     });
 
-    console.log(response);
+    const responseData = await response.json();
+    console.log('Respuesta del servidor:', responseData);
 
     if (!response.ok) {
-      console.error('Error en la respuesta del servidor:', response.status);
-      throw new Error('Error en la respuesta del servidor');
+      return res.status(response.status).json({
+        success: false,
+        error: responseData.message || 'Error en la respuesta del servidor',
+        details: responseData
+      });
     }
 
-    const data = await response.json();
-    
-    // Enviamos una respuesta estructurada al frontend
     res.status(200).json({
       success: true,
       message: 'Contrato creado correctamente',
-      data: {
-        id: data.id || null,
-        status: data.status || 'success',
-        timestamp: new Date().toISOString()
-      }
+      data: responseData
     });
   } catch (error) {
     console.error('Error al crear y contratar:', error);
