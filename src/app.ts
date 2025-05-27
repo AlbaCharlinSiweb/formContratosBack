@@ -46,7 +46,7 @@ app.use(express.json());
 app.use('/api', contractRoutes);
 app.use('/api', supabaseRoutes);
 app.use('/api', sendContactRoutes);
-
+console.log('Rutas de contacto montadas en /api');
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
